@@ -102,7 +102,7 @@ Tested with Zenoss 3.1
 Change History
 ==============
 * 1.0
-   * Initial Release
+   * Initial Release 
 * 2.0
    * Updated Kells original ZenPack to work with Zenoss 3.1.x
 * 2.1
