@@ -55,6 +55,8 @@ Only  supports browsing MIBs that are stored in Zope, *not* all of the MIBs  tha
 
 Only supports SNMP v1 snmpwalks. (To be examined)
 
+This ZenPack does NOT work with Zenoss 3.2.x.
+
 Requirements & Dependencies
 ===========================
 
@@ -113,7 +115,7 @@ Screenshots
 
 .. External References Below. Nothing Below This Line Should Be Rendered
 
-.. _Latest Package for Python 2.6: https://github.com/jcurry/ZenPacks.common.mib_browser/blob/master/dist/ZenPacks.common.mib_browser-2.1-py2.6.egg?raw=true
+.. _Latest Package for Python 2.6: https://github.com/jcurry/ZenPacks.community.mib_browser/blob/master/dist/ZenPacks.community.mib_browser-2.1-py2.6.egg?raw=true
 
 .. |mib_browser_2.0_zenpack_screenshot| image:: http://github.com/jcurry/ZenPacks.community.mib_browser/raw/master/screenshots/mib_browser_2.0_zenpack_screenshot.jpg
 
