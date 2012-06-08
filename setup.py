@@ -5,7 +5,7 @@
 NAME = "ZenPacks.community.mib_browser"
 VERSION = "2.1"
 AUTHOR = "Kells Kearney & Jane Curry"
-LICENSE = ""
+LICENSE = "GPLv2"
 NAMESPACE_PACKAGES = ['ZenPacks', 'ZenPacks.community']
 PACKAGES = ['ZenPacks', 'ZenPacks.community', 'ZenPacks.community.mib_browser']
 INSTALL_REQUIRES = []
