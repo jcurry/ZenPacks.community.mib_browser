@@ -103,6 +103,7 @@ Products/ZenUI3/browser/navigation.zcml
 ---------------------------------------
 
 Around line 235, change the url line::
+
     url="/zport/dmd/mibs"            becomes
     url="/zport/dmd/Mibs/mibOrganizerOverview"          note captialisation carefully!
 
@@ -185,8 +186,8 @@ Screenshots
 
 .. External References Below. Nothing Below This Line Should Be Rendered
 
-.. _Latest Package for Python 2.6: https://github.com/jcurry/ZenPacks.community.mib_browser/blob/master/dist/ZenPacks.community.mib_browser-2.1-py2.6.egg?raw=true
-.. _Latest Package for Python 2.7: https://github.com/jcurry/ZenPacks.community.mib_browser/blob/master/dist/ZenPacks.community.mib_browser-2.2-py2.7.egg?raw=true
+.. _Latest Package for Python 2.6: https://github.com/jcurry/ZenPacks.community.mib_browser/blob/5.x/dist/ZenPacks.community.mib_browser-2.1-py2.6.egg?raw=true
+.. _Latest Package for Python 2.7: https://github.com/jcurry/ZenPacks.community.mib_browser/blob/5.x/dist/ZenPacks.community.mib_browser-2.2-py2.7.egg?raw=true
 
 .. |mib_browser_2.0_zenpack_screenshot| image:: http://github.com/jcurry/ZenPacks.community.mib_browser/raw/master/screenshots/mib_browser_2.0_zenpack_screenshot.jpg
 
