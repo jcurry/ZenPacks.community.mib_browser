@@ -37,8 +37,7 @@ class ZenPack(ZenPackBase):
         ZenPackBase.upgrade( self, app )
 
     def remove( self, app, leaveObjects=False):
-        #ZenPackBase.remove( self, app, leaveObjects=True )
-        ZenPackBase.remove( self, app, leaveObjects=False )
+        ZenPackBase.remove( self, app, leaveObjects=True )
 
 
 tab = { 'id': 'mibBrowser',

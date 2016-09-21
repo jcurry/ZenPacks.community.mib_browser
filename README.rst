@@ -59,15 +59,41 @@ Modifications for Zenoss 3.2, 4.x, 5.x
 ======================================
 
 To make this ZenPack work with Zenoss 3.2, 4.x or 5.x you need to reverse some standard code "updates" 
-back to the Zenoss 3.1 code level (all directories under $ZENHOME):
+back to the Zenoss 3.1 code level (all directories under $ZENHOME). Make sure you take copies of each file
+before modification.
 
 After changing these files, you will need to completely restart Zenoss and make sure your browser cache 
 is cleared out. 
+ 
+With Zenoss 5.x, the following changes must be made in the **Zope** container, and committed afterwards; ie.
+
+serviced service stop Zenoss.core
+
+serviced service snapshot Zenoss.core
+
+serviced service start Zenoss.core
+
+serviced service shell -i -s preMib_browser_Zenpack zope bash
+
+su - zenoss
+
+< make all the changes>
+
+exit
+
+exit
+
+serviced snapshot commit preMib_browser_Zenpack
+
 
 Products/ZenUI3/browser/backcompat.py
 -------------------------------------
 
-Comment out the lines at the end defining MibClass
+Comment out the lines at the end defining MibClass::
+    def MibClass(ob):
+        id = '/'.join(ob.getPhysicalPath())
+        return '/zport/dmd/mibs#mibtree:' + id
+
 
 +#def MibClass(ob): +# id = '/'.join(ob.getPhysicalPath()) +# return '/zport/dmd/mibs#mibtree:' + id
 
@@ -76,7 +102,10 @@ If there are also similar lines for MibNode and MibNotification, comment them ou
 Products/ZenUI3/browser/navigation.zcml
 ---------------------------------------
 
-Around line 247, change the url line to be url="/zport/dmd/Mibs/mibOrganizerOverview" - url="/zport/dmd/mibs" + url="/zport/dmd/Mibs/mibOrganizerOverview"
+Around line 235, change the url line::
+    url="/zport/dmd/mibs"            becomes
+    url="/zport/dmd/Mibs/mibOrganizerOverview"          note captialisation carefully!
+
 
 Note carefully the case sensitivity on mibs / Mibs
 
@@ -84,7 +113,7 @@ Note carefully the case sensitivity on mibs / Mibs
 Products/ZenUI3/browser/backcompat.zcml
 ---------------------------------------
 
-Around line 355 comment out lines for the adapter for "Products.ZenModel.MibOrganizer.MibOrganizer" If adapter stanzas also exist for MibNode, MibNotification and MibModule, comment them out too
+Around line 203 comment out lines for the **adapter** for "Products.ZenModel.MibOrganizer.MibOrganizer" If adapter stanzas also exist for MibNode, MibNotification and MibModule, comment them out too
 
 
 Products/ZenModel/skins/zenmodel/viewMibModule.pt
@@ -92,8 +121,6 @@ Products/ZenModel/skins/zenmodel/viewMibModule.pt
 
 Change the template in the first line to be <tal:block metal:use-macro="here/page_macros/old-new">
 
-
--<tal:block metal:use-macro="here/templates/macros/page2"> +<tal:block metal:use-macro="here/page_macros/old-new"> 
 
 
 Requirements & Dependencies

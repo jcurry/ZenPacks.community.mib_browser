@@ -3,7 +3,7 @@
 # or saved.  Do not modify them directly here.
 # NB: PACKAGES is deprecated
 NAME = "ZenPacks.community.mib_browser"
-VERSION = "2.1"
+VERSION = "2.2"
 AUTHOR = "Kells Kearney & Jane Curry"
 LICENSE = "GPLv2"
 NAMESPACE_PACKAGES = ['ZenPacks', 'ZenPacks.community']
