@@ -10,7 +10,7 @@ This is Kells Kearney's ZenPack.community.mib_utils ZenPack, updated to work wit
 with Zenoss 3.1 and with Firefox 3.6.13 and 4.0b12.  No functional enhancements have been made and the testing 
 emphasis has been on the MIB Browser functionality, rather than any other features.
 
-This ZenPack does NOT work with Zenoss 3.2.x.
+This ZenPack can be made to work with 3.2 and 4.1 - see below
 
 Components
 ==========
@@ -55,12 +55,52 @@ Only  supports browsing MIBs that are stored in Zope, *not* all of the MIBs  tha
 
 Only supports SNMP v1 snmpwalks. (To be examined)
 
-This ZenPack does NOT work with Zenoss 3.2.x.
+Modifications for Zenoss 3.2, 4.x, 5.x
+======================================
+
+To make this ZenPack work with Zenoss 3.2, 4.x or 5.x you need to reverse some standard code "updates" 
+back to the Zenoss 3.1 code level (all directories under $ZENHOME):
+
+After changing these files, you will need to completely restart Zenoss and make sure your browser cache 
+is cleared out. 
+
+Products/ZenUI3/browser/backcompat.py
+-------------------------------------
+
+Comment out the lines at the end defining MibClass
+
++#def MibClass(ob): +# id = '/'.join(ob.getPhysicalPath()) +# return '/zport/dmd/mibs#mibtree:' + id
+
+If there are also similar lines for MibNode and MibNotification, comment them out too
+
+Products/ZenUI3/browser/navigation.zcml
+---------------------------------------
+
+Around line 247, change the url line to be url="/zport/dmd/Mibs/mibOrganizerOverview" - url="/zport/dmd/mibs" + url="/zport/dmd/Mibs/mibOrganizerOverview"
+
+Note carefully the case sensitivity on mibs / Mibs
+
+
+Products/ZenUI3/browser/backcompat.zcml
+---------------------------------------
+
+Around line 355 comment out lines for the adapter for "Products.ZenModel.MibOrganizer.MibOrganizer" If adapter stanzas also exist for MibNode, MibNotification and MibModule, comment them out too
+
+
+Products/ZenModel/skins/zenmodel/viewMibModule.pt
+-------------------------------------------------
+
+Change the template in the first line to be <tal:block metal:use-macro="here/page_macros/old-new">
+
+
+-<tal:block metal:use-macro="here/templates/macros/page2"> +<tal:block metal:use-macro="here/page_macros/old-new"> 
+
 
 Requirements & Dependencies
 ===========================
 
-    * Zenoss Versions Supported: 3.0, 3.1.x.  NOT 3.2.x
+    * Zenoss Versions Supported Directly: 3.0, 3.1.x.  
+    * Zenoss Versions Supported with Modifications: 3.2, 4.x, 5.x
     * External Dependencies: 
     * ZenPack Dependencies:
     * Installation Notes: zenhub and zopectl restart after installing this ZenPack.
@@ -72,6 +112,7 @@ Download the appropriate package for your Zenoss version from the list
 below.
 
 * Zenoss 3.0+ `Latest Package for Python 2.6`_
+* Zenoss 4.x and 5.x+ `Latest Package for Python 2.7`_
 
 Installation
 ============
@@ -107,6 +148,8 @@ Change History
    * Updated Kells original ZenPack to work with Zenoss 3.1.x
 * 2.1
    * Transferred to new github methods
+* 2.2
+   * Builds for Zenoss 4.x and 5.x with Python 2.7
 
 Screenshots
 ===========
@@ -116,6 +159,7 @@ Screenshots
 .. External References Below. Nothing Below This Line Should Be Rendered
 
 .. _Latest Package for Python 2.6: https://github.com/jcurry/ZenPacks.community.mib_browser/blob/master/dist/ZenPacks.community.mib_browser-2.1-py2.6.egg?raw=true
+.. _Latest Package for Python 2.7: https://github.com/jcurry/ZenPacks.community.mib_browser/blob/master/dist/ZenPacks.community.mib_browser-2.2-py2.7.egg?raw=true
 
 .. |mib_browser_2.0_zenpack_screenshot| image:: http://github.com/jcurry/ZenPacks.community.mib_browser/raw/master/screenshots/mib_browser_2.0_zenpack_screenshot.jpg
 
