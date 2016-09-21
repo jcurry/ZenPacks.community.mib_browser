@@ -10,7 +10,7 @@ This is Kells Kearney's ZenPack.community.mib_utils ZenPack, updated to work wit
 with Zenoss 3.1 and with Firefox 3.6.13 and 4.0b12.  No functional enhancements have been made and the testing 
 emphasis has been on the MIB Browser functionality, rather than any other features.
 
-This ZenPack can be made to work with 3.2 and 4.1 - see below
+This ZenPack can be made to work with 3.2, 4.x and 5.x - see below
 
 Components
 ==========
@@ -90,12 +90,12 @@ Products/ZenUI3/browser/backcompat.py
 -------------------------------------
 
 Comment out the lines at the end defining MibClass::
+
     def MibClass(ob):
         id = '/'.join(ob.getPhysicalPath())
         return '/zport/dmd/mibs#mibtree:' + id
 
 
-+#def MibClass(ob): +# id = '/'.join(ob.getPhysicalPath()) +# return '/zport/dmd/mibs#mibtree:' + id
 
 If there are also similar lines for MibNode and MibNotification, comment them out too
 
