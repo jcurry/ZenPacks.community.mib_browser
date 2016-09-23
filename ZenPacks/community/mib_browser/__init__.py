@@ -711,9 +711,7 @@ def oid_translate2xml( self, oid="", REQUEST=None ):
 
 
 
-# Doesn't walk with snmpVer as parameter - don't know why - JC
-#def snmpwalk( self, device="", oid="", community="", snmpVer="", REQUEST=None ):
-def snmpwalk( self, device="", oid="", community="",  REQUEST=None ):
+def snmpwalk( self, device="", oid="", community="", version="", REQUEST=None ):
     """Use the snmpwalk command to walk the device's MIB
        starting from the given oid.  Currently just uses the
        SNMP v1 style authentication, so only community is supported.
@@ -728,12 +726,16 @@ def snmpwalk( self, device="", oid="", community="",  REQUEST=None ):
         out = REQUEST.RESPONSE
     else:
         out = None
-
     try:
-        cmd= "snmpwalk -v 1 -c %s %s %s" % ( community, device, oid )
-#        cmd= "snmpwalk -v %s -c %s %s %s" % ( snmpVer, community, device, oid )
+        if not community:           # No community supplied so get from ZODB
+            devObj= self.dmd.Devices.findDevice( device )
+            if devObj.zSnmpVer == "v3":
+                cmd = "snmpwalk -%s -l authNoPriv -a %s -x %s -A %s -X %s -u %s %s %s" % (devObj.zSnmpVer, devObj.zSnmpAuthType, devObj.zSnmpPrivType, devObj.zSnmpAuthPassword, devObj.zSnmpPrivPassword, devObj.zSnmpSecurityName, device, oid)
+            else:
+                cmd = "snmpwalk -%s -c %s %s %s" % (devObj.zSnmpVer, devObj.zSnmpCommunity, device, oid)
+        else:                       #use device, version and community passed by dialog box
+            cmd= "snmpwalk -%s -c %s %s %s" % ( version, community, device, oid )
         dump_command_output( mib_context, out, cmd )
-
     except:
         mib_context.write(out, 'Error invoking snmpwalk.')
         mib_context.write( out, 'type: %s  value: %s' % tuple(sys.exc_info()[:2]))

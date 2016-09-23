@@ -2,6 +2,12 @@
 //YAHOO.util.Event.addListener( window, "load", initAll );
 //YAHOO.util.Event.onAvailable( "mib_browser", initAll );
 // YAHOO.util.Event.onAvailable( "mib_browser", mib_browser );
+
+/* 
+  ENSURE YOU CLEAR THE BROWSER CACHE - EDIT -> PREFERENCES -> ADVANCED AND CLEAR ALL CACHES
+   AFTER ANY CHANGES IN THIS FILE. 
+   YOU ALSO NEED TO RECYCLE ZOPE
+*/   
 var isie= false;
 
 /*
@@ -203,7 +209,7 @@ function deleteNode() {
 
 function snmpwalk_oid() {
   var menu_oid;
-  var device, community, snmpVer;
+  var device, community, version;
 
  if( oCurrentTextNode ) {
     menu_oid= oCurrentTextNode.data.getAttribute( 'oid' );
@@ -217,11 +223,12 @@ function snmpwalk_oid() {
 
  device= document.getElementById( "test_device" ).value;
  community= document.getElementById( "test_community" ).value;
-//  This doesn't work - don't know why - JC
-//snmpVer= document.getElementById( "test_snmp_ver" ).value;
+ version= document.getElementById( "test_version" ).value;
 
- if( device == "" || community == "" ) {
-    alert( "Need to define a test server and community string!" );
+ //alert(" Version is " + version);
+ //if( device == "" || community == "" ) {
+ if( device == "" ) {
+    alert( "Need to define a test server " );
     /*
      * Ideally, there should be a way to set the focus to the
      * test settings tab so that the user has to do the minimum
@@ -231,9 +238,7 @@ function snmpwalk_oid() {
     return;
  }
 
- var url= "/zport/snmpwalk?device=" + device + "&oid=" + menu_oid + "&community=" + community ;
-// This doesn't work - don't know why - JC
-// var url= "/zport/snmpwalk?device=" + device + "&oid=" + menu_oid + "&community=" + community + "&snmpVer=" + snmpVer;
+ var url= "/zport/snmpwalk?device=" + device + "&oid=" + menu_oid + "&community=" + community + "&version=" + version ;
 
  snmpwalk_window= window.open( url, oCurrentTextNode.label, "location=yes,scrollbars=yes,toolbar=no,status=no,resizable=yes,width=600,height=400" ); 
 }

@@ -10,14 +10,14 @@ This is Kells Kearney's ZenPack.community.mib_utils ZenPack, updated to work wit
 with Zenoss 3.1 and with Firefox 3.6.13 and 4.0b12.  No functional enhancements have been made and the testing 
 emphasis has been on the MIB Browser functionality, rather than any other features.
 
-This ZenPack can be made to work with 3.2, 4.x and 5.x - see below
+This ZenPack can be made to work with 3.2, 4.x and 5.x - see below. It has been tested with Zenoss 5.1.5 
+and Firefox 45.2.0. 
 
 Components
 ==========
 
 The main MIBs menu has a new left-hand menu for MIB Browser which bring up Kells's original MIB Browser code.  Any MIB that has been loaded into Zenoss using the standard features, can be explored.
 
- 
 
 Little magnifying  glass icons appear in front of every MIB file, and if you click the  magnifying glass it brings up a tree-based browser (ie one that  understands the OID hierarchy, so that the OID x.2 follows x.1, not  x.11). (It also loads a popup, so if you don't allow popups from your  Zenoss server, you'll need to enable them, close down the new windows  and try it again. A popup window is used so that you can expand the tree  window to be as large as you like and still be able to view the  contents of the OID.)
 
@@ -31,13 +31,17 @@ The  menu bar shows the last time that the MIB was loaded from the Zenoss  serve
 
     Info: where information about the MIB can be changed, such as the MIB specification language, the description and the contact.
     Lookup: where you can lookup information about an OID using either its name or  its numeric form. After you hit return or change the focus on the window  the results will be displayed on the screen. (NB: snmptranslate must be  in the zenoss user's path for this to work.)
-    Test settings: Enter the SNMP version 1 information into this tab and then when you  right click on a node or trap you can query this device starting at that  OID.
+    Test settings: Enter the SNMP information into this tab and then when you  right click on a node or trap you can query this device starting at that  OID.
     SNMP: Provides background information about the Simple Network Management protocol
     Hide Tabs: Sometimes the screen real estate is important, so this provides a way to reclaim that space.
 
 The  MIB browser shows you the description and other information about the  MIB, and there are two trees which you can select from the MIB: Nodes  and Traps. Any information not in the MIB (ie traps) will make part of  the tree stop at the root (ie Nodes or Traps). You can expand or  contract any portion of the tree that you wish, and the information  about any node that you select will appear in the OID popup window. If  you hover over a node, the truncated description of the OID will appear  in the tooltip.
 
-By right-clicking on a Node or a Trap, you can  select a menu item to bring up a new pop-up window which will run a SNMP  version 1 snmpwalk on the defined test device and display the output  starting from the OID that you've hovered over.
+By right-clicking on a Node or a Trap, you can  select a menu item to bring up a new pop-up window which will 
+run an SNMP snmpwalk on the defined test device and display the output  starting from the OID 
+that you've hovered over. From ZenPack version 2.2, the SNMP version can be selected; if the community field in
+Test Settings is left blank, parameters for the device will be looked-up in the Zenoss ZODB database.  If using
+this feature, ensure the device field is set to the exact name that Zenoss knows the device as.
 
 Other details: Two extra routines are provided to make exploring Zenoss in XML a little easier: showXML and showMibasXML.
 
@@ -53,7 +57,13 @@ Zenoss doesn't store enough information  about the MIB to be able to recreate th
 
 Only  supports browsing MIBs that are stored in Zope, *not* all of the MIBs  that are stored on the Zenoss server. (Possibly to be examined. This  would probably involve running smidump over the MIB and then doing some  XSL modifications (minor modifications to structure and possibly a MIB  sort function) to produce acceptable output)
 
-Only supports SNMP v1 snmpwalks. (To be examined)
+ZenPack versions prior to 2.2 only support SNMP v1 snmpwalks. V2.2 supports v1, v2c and v3.
+
+**Note** that the layout for most of the Mibs panels change.  Although Mibs already loaded are themselves 
+unaffected, an unwanted consequence of the ZenPack is that the list of Mibs in an organizer (including
+the top-level) no longer responds successfully to the "Show All" button; this means that you can only see the first 40 Mibs in any organizer.  As a workaround, one could create a new organizer, select the first 40 mibs and
+then move them to the new organizer, repeating the process as necessary to ensure a maximum of 40 Mibs
+per organizer.
 
 Modifications for Zenoss 3.2, 4.x, 5.x
 ======================================
@@ -132,6 +142,9 @@ Requirements & Dependencies
     * External Dependencies: 
     * ZenPack Dependencies:
     * Installation Notes: zenhub and zopectl restart after installing this ZenPack.
+      Restart Zenoss.Core after installation for Zenoss 5.x.
+      It is **essential** to clear the browser cache after installing the ZenPack.  With Firefox on
+      Unix, this means Edit -> Preferences -> Advanced and click "Clear Now" for both cache fields.
     * Configuration: 
 
 Download
@@ -166,7 +179,7 @@ developer mode::
 Configuration
 =============
 
-Tested with Zenoss 3.1 
+Tested with Zenoss 3.1, 4.2.5 and 5.1.5. 
 
 Change History
 ==============
@@ -178,6 +191,8 @@ Change History
    * Transferred to new github methods
 * 2.2
    * Builds for Zenoss 4.x and 5.x with Python 2.7
+     Version dropdown to select SNMP version in Test Settings
+     Blank community in Test Settings results in ZODB lookup for SNMP parameters.
 
 Screenshots
 ===========

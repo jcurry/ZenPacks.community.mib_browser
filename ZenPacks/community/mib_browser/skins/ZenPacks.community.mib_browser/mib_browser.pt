@@ -140,6 +140,9 @@ background: transparent url(img/titlebar_bg.gif) repeat-x bottom left;
 </table></div>
         <div id="tab_test_settings">
 <p>The snmpwalk menu option uses this information to snmpwalk the device with the selected OID.
+  If no community is provided, details will be gathered from the Zenoss database. Ensure the device
+  field matches the name in Zenoss.
+
   To select the snmpwalk menu option, navigate to the desired OID in the MIB tree and right-click to display
 the menu options, and then click 'snmpwalk'.</p>
 <table>
@@ -148,6 +151,12 @@ the menu options, and then click 'snmpwalk'.</p>
        <td> <input class="tablevalues" title="Device to test against" type="text" size="20" id="test_device" /> </td>
        <td class="tableheader" title="Community name to use for contacting the device" >Community</td>
        <td> <input class="tablevalues" title="Community name to use for contacting the device" type="text" size="20" id="test_community" /> </td>
+       <td class="tableheader" title="SNMP Version to use for contacting the device" >Version</td>
+       <td> <select class="tablevalues" title="SNMP Version to use for contacting the device" id="test_version" >
+          <option value="v1" >v1</option>
+          <option value="v2c" selected >v2c</option>
+          </select>
+       </td>
    </tr>
 	<!--
    <tr>
