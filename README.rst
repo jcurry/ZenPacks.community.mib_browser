@@ -141,9 +141,10 @@ Requirements & Dependencies
     * Zenoss Versions Supported with Modifications: 3.2, 4.x, 5.x
     * External Dependencies: 
     * ZenPack Dependencies:
-    * Installation Notes: zenhub and zopectl restart after installing this ZenPack.
-      Restart Zenoss.Core after installation for Zenoss 5.x.
-      It is **essential** to clear the browser cache after installing the ZenPack.  With Firefox on
+    * Installation Notes: 
+       * zenhub and zopectl restart after installing this ZenPack.
+       * Restart Zenoss.Core after installation for Zenoss 5.x.
+       * It is **essential** to clear the browser cache after installing the ZenPack.  With Firefox on
       Unix, this means Edit -> Preferences -> Advanced and click "Clear Now" for both cache fields.
     * Configuration: 
 
