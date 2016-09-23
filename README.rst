@@ -191,8 +191,8 @@ Change History
    * Transferred to new github methods
 * 2.2
    * Builds for Zenoss 4.x and 5.x with Python 2.7
-     Version dropdown to select SNMP version in Test Settings
-     Blank community in Test Settings results in ZODB lookup for SNMP parameters.
+   * Version dropdown to select SNMP version in Test Settings
+   * Blank community in Test Settings results in ZODB lookup for SNMP parameters.
 
 Screenshots
 ===========
