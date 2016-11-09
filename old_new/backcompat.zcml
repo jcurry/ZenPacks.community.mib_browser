@@ -1,0 +1,597 @@
+<!--
+##############################################################################
+#
+# Copyright (C) Zenoss, Inc. 2010, all rights reserved.
+#
+# This content is made available according to terms specified in
+# License.zenoss under the directory where your Zenoss product is installed.
+#
+##############################################################################
+-->
+
+
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:five="http://namespaces.zope.org/five">
+
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/zPropOverriddenNew.pt"
+    name="zPropOverriddenNew"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:defaultView
+    for="Products.ZenModel.UserSettings.UserSettings"
+    name="editUserSettings"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/editUserSettings.pt"
+    name="editUserSettings"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:defaultView
+    for="Products.ZenModel.UserSettings.GroupSettings"
+    name="editGroupSettings"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/editGroupSettings.pt"
+    name="editGroupSettings"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/administeredDevices.pt"
+    name="administeredDevices"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:defaultView
+    for="Products.ZenModel.DataRoot.DataRoot"
+    name="Dashboard"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/Dashboard.pt"
+    name="Dashboard"
+    for="*"
+    permission="zenoss.Common"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/editSettings.pt"
+    name="editSettings"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/dataRootManage.pt"
+    name="dataRootManage"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:defaultView
+    for="Products.ZenModel.UserCommand.UserCommand"
+    name="userCommandDetailNew"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/userCommandDetailNew.pt"
+    name="userCommandDetailNew"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/manageUserFolder.pt"
+    name="manageUserFolder"
+    for="*"
+    permission="zenoss.ManageDMD"
+    />
+
+<browser:defaultView
+    for="Products.ZenModel.ZenPackManager.ZenPackManager"
+    name="viewZenPacks"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/viewZenPacks.pt"
+    name="viewZenPacks"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:defaultView
+    for="Products.ZenModel.ZenPack.ZenPack"
+    name="viewPackDetail"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/viewPackDetail.pt"
+    name="viewPackDetail"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/commandOutputTemplate.pt"
+    name="commandOutputTemplate"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/editMenus.pt"
+    name="editMenus"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenWidgets/skins/zenui/editPortletPerms.pt"
+    name="editPortletPerms"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenEvents/skins/zenevents/zepConfig.pt"
+    name="eventConfig"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="templates/userInterfaceConfig.pt"
+    name="userInterfaceConfig"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/zenossInfo.pt"
+    name="zenossInfo"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/viewDaemonLog.pt"
+    name="viewDaemonLog"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/viewDaemonConfig.pt"
+    name="viewDaemonConfig"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/showDaemonXMLConfig.pt"
+    name="showDaemonXMLConfig"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/editDaemonConfig.pt"
+    name="editDaemonConfig"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/zenossVersions.pt"
+    name="zenossVersions"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<!--
+<adapter
+    for="Products.ZenModel.MibNode.MibNode"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.MibNode"
+    />
+
+<adapter
+    for="Products.ZenModel.MibNotification.MibNotification"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.MibNotification"
+    />
+
+<adapter
+    for="Products.ZenModel.MibModule.MibModule"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.MibClass"
+    />
+
+<adapter
+    for="Products.ZenModel.MibOrganizer.MibOrganizer"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.MibClass"
+    />
+-->
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/mibOrganizerOverview.pt"
+    name="mibOrganizerOverview"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/viewMibNode.pt"
+    name="viewMibNode"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/viewMibNotification.pt"
+    name="viewMibNotification"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:defaultView
+    for="Products.ZenModel.MibModule.MibModule"
+    name="viewMibModule"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/viewMibModule.pt"
+    name="viewMibModule"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/editMibModule.pt"
+    name="editMibModule"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/zPropertyEditNew.pt"
+    name="zPropertyEditNew"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:defaultView
+    for="Products.ZenModel.MonitorClass.MonitorClass"
+    name="monitorList"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/monitorList.pt"
+    name="monitorList"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/viewRRDTemplate.pt"
+    name="viewRRDTemplate"
+    for="*"
+    permission="zenoss.View"
+    />
+
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/editRRDDataPoint.pt"
+    name="editRRDDataPoint"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/editRRDThreshold.pt"
+    name="editRRDThreshold"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/editBasicDataSource.pt"
+    name="editBasicDataSource"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/editGraphDefinition.pt"
+    name="editGraphDefinition"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/editCustGraphDefinition.pt"
+    name="editCustGraphDefinition"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/editMultiGraphReport.pt"
+    name="editMultiGraphReport"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/editCollection.pt"
+    name="editCollection"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/editCollectionItem.pt"
+    name="editCollectionItem"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/editGraphPoint.pt"
+    name="editGraphPoint"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/editGraphGroup.pt"
+    name="editGraphGroup"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/editGraphReport.pt"
+    name="editGraphReport"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/editGraphReportElement.pt"
+    name="editGraphReportElement"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/editDeviceReport.pt"
+    name="editDeviceReport"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/viewGraphCommands.pt"
+    name="viewGraphCommands"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:defaultView
+    for="Products.ZenModel.PerformanceConf.PerformanceConf"
+    name="viewPerformanceConfOverview"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/viewPerformanceConfOverview.pt"
+    name="viewPerformanceConfOverview"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/editPerformanceConf.pt"
+    name="editPerformanceConf"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<browser:page
+    template="../../ZenModel/skins/zenmodel/viewDaemonPerformance.pt"
+    name="viewDaemonPerformance"
+    for="*"
+    permission="zenoss.View"
+    />
+
+<adapter
+    for="Products.ZenModel.ZenModelBase.ZenModelBase"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.immediate_view"
+    />
+
+<adapter
+    for="Products.ZenModel.DeviceClass.DeviceClass"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.DeviceClass"
+    />
+
+<adapter
+    for="Products.ZenEvents.EventClass.EventClass"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.EventClass"
+    />
+
+<adapter
+    for="Products.ZenModel.Manufacturer.Manufacturer"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.Manufacturer"
+    />
+
+<adapter
+    for="Products.ZenModel.ProductClass.ProductClass"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.ProductClass"
+    />
+
+
+<adapter
+    for="Products.ZenEvents.EventClassInst.EventClassInst"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.EventClass"
+    />
+
+<adapter
+    for="Products.ZenModel.Device.Device"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.Device"
+    />
+
+
+<adapter
+    for="Products.ZenModel.Location.Location"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.Location"
+    />
+
+<adapter
+    for="Products.ZenModel.System.System"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.System"
+    />
+
+<adapter
+    for="Products.ZenModel.DeviceGroup.DeviceGroup"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.DeviceGroup"
+    />
+
+<adapter
+    for="Products.ZenModel.IpAddress.IpAddress"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.IpNetwork"
+    />
+
+<adapter
+    for="Products.ZenModel.IpNetwork.IpNetwork"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.IpNetwork"
+    />
+
+<adapter
+    for="Products.ZenModel.DeviceComponent.DeviceComponent"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.DeviceComponent"
+    />
+
+<adapter
+    for="Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.Process"
+    />
+
+<adapter
+    for="Products.ZenModel.OSProcessClass.OSProcessClass"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.Process"
+    />
+
+<adapter
+    for="Products.ZenModel.IpServiceClass.IpServiceClass"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.Service"
+    />
+
+<adapter
+    for="Products.ZenModel.ServiceClass.ServiceClass"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.Service"
+    />
+
+<adapter
+    for="Products.ZenModel.WinServiceClass.WinServiceClass"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.Service"
+    />
+
+<adapter
+    for="Products.ZenModel.RRDTemplate.RRDTemplate"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.MonitoringTemplate"
+    />
+
+<adapter
+    for="Products.ZenModel.RRDDataSource.RRDDataSource"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.MonitoringTemplate"
+    />
+
+<adapter
+    for="Products.ZenModel.RRDDataPoint.RRDDataPoint"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.MonitoringTemplate"
+    />
+
+<adapter
+    for="Products.ZenModel.RRDDataPointAlias.RRDDataPointAlias"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.MonitoringTemplate"
+    />
+
+<adapter
+    for="Products.ZenModel.RRDThreshold.RRDThreshold"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.MonitoringTemplate"
+    />
+
+<adapter
+    for="Products.ZenModel.MinMaxThreshold.MinMaxThreshold"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.MonitoringTemplate"
+    />
+
+<adapter
+    for="Products.ZenModel.GraphPoint.GraphPoint"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.MonitoringTemplate"
+    />
+
+<adapter
+    for="Products.ZenModel.ReportClass.ReportClass"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.ReportClass"
+    />
+
+<adapter
+    for="Products.ZenModel.DeviceReport.DeviceReport"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.CustomReport"
+    />
+
+<adapter
+    for="Products.ZenModel.GraphReport.GraphReport"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.CustomReport"
+    />
+
+<adapter
+    for="Products.ZenModel.MultiGraphReport.MultiGraphReport"
+    provides=".interfaces.INewPath"
+    factory=".backcompat.CustomReport"
+    />
+
+
+</configure>
